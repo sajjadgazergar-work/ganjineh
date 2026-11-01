@@ -1,0 +1,52 @@
+# ── Ganjineh repository: docs and screenshots only ─────────────────────────────
+# This repo publishes documentation + PNG screenshots. The portable app is shipped
+# as a GitHub Release asset (Ganjineh-1.1.0-win-x64.zip), never as a committed file:
+# Ganjineh.exe alone is ~238 MB, over GitHub's 100 MB per-file limit.
+#
+# The list below is deliberately broad: a careless `git add -A` in the parent folder
+# must never sweep in 600 MB of binaries or one person's data folder.
+
+# ── Personal data, never published ─────────────────────────────────────────────
+# In portable mode Ganjineh keeps settings, accounts, cookies, the queue, the
+# library index and logs in GanjinehData\ next to Ganjineh.exe.
+GanjinehData/
+
+# ── Release artifacts and app payload ──────────────────────────────────────────
+*.zip
+*.7z
+*.exe
+*.asar
+*.asar.before-*
+*.pak
+*.dll
+resources/
+locales/
+
+# ── Maintainer working tree, staging and scratch output ────────────────────────
+_work/
+_work/release/dist/
+_work/release/out/
+_work/release/_tmp/
+
+# ── Build and rollback backups ─────────────────────────────────────────────────
+# Snapshots taken while patching the packaged app: app.asar.before-explore,
+# app.asar.before-icon, app.asar.before-fix, Ganjineh.exe.before-version, …
+*.before-*
+*.new
+
+# ── Local tooling, logs, debug state ───────────────────────────────────────────
+DevToolsActivePort
+lockfile
+*.log
+logs/
+*.tmp
+
+# ── Windows shell droppings ────────────────────────────────────────────────────
+desktop.ini
+Thumbs.db
+
+# Chromium profile locks and release manifests left behind by a run
+SingletonLock
+*.dat
+*.bin
+SHA256SUMS.txt
